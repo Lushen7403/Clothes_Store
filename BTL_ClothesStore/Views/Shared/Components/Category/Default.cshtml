@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Category>
+<div> Loại sản phẩm::</div>
+@foreach(var item in Model)
+{
+    
+    <li><a asp-controller="Product" asp-action="ProductByCategory" asp-route-id="@item.CategoryId">@item.CategoryName</a></li>
+   
+}

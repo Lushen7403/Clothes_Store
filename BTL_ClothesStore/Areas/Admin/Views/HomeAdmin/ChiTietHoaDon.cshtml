@@ -1,0 +1,54 @@
+﻿@using BTL_ClothesStore.Models
+@model List<OrderDetail>
+
+@{
+    ViewData["Title"] = "Chi Tiết Hóa Đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h3>Chi Tiết Hóa Đơn</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên Sản Phẩm
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Đơn Giá
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+            string @cls = "table-success";
+        }
+        @foreach (var item in Model)
+        {
+            i = i + 1;
+            cls = "table-success";
+            if (i % 2 == 0)
+            {
+                cls = "table-primary";
+            }
+            <tr class="@cls">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total) VND
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

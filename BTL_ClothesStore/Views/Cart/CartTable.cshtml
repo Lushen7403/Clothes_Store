@@ -1,0 +1,52 @@
+﻿
+<section id="cart" class="section-p1">
+    @{
+        double total = 0;
+
+        foreach (var i in Model)
+        {
+            total += i._price;
+        }
+
+    }
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>Xóa</td>
+                <td>Mã Sản Phẩm</td>
+                <td>Ảnh</td>
+                <td>Sản Phẩm</td>
+                <td>Giá</td>
+                <td>Số Lượng</td>
+                <td>Thành Tiền</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><a class="delete" data-id="@item.product.ProductId"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
+                    <td>@item.product.ProductId</td>
+                    <td><img src="~/Image/ProductImage/@item.product.ProductImage" alt=""></td>
+                    <td>@item.product.ProductName</td>
+                    <td>@item.product.ProductPrice</td>
+                    <td>@item._quantity</td>
+                    <td>@item._price</td>
+                </tr>
+            }
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Tong tien: @total</b></td>
+            </tr>
+        </tbody>
+
+
+
+    </table>
+</section>

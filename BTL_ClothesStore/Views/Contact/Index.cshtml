@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section id="page-header" class="about-header">
+    <h2>#Liên Hệ Với Chúng Tôi</h2>
+    <p>Chúng tôi rất vui khi nghe được phản hồi từ bạn</p>
+</section>
+
+<section id="contact-details" class="section-p1">
+
+    <div class="details">
+        <span>Liên lạc với chúng tôi</span>
+        <h2>Tới một trong các chi nhánh của chúng tôi hoặc liên hệ ngay hôm nay</h2>
+        <h3>Văn phòng chính</h3>
+        <div>
+            <li>
+                <i class="fa fa-map"></i>
+                <p>Số 3 Đường Cầu giấy Hà Nội</p>
+            </li>
+            <li>
+                <i class="fa fa-envelope"></i>
+                <p>mayconga@gmail.com</p>
+            </li>
+            <li>
+                <i class="fa fa-phone-alt"></i>
+                <p>0986465221</p>
+            </li>
+            <li>
+                <i class="fa fa-clock"></i>
+                <p>Thứ 2 tới thứ 7: 9.00am - 17.00pm</p>
+            </li>
+        </div>
+    </div>
+    <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1132405731128!2d105.8034205!3d21.028154500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab424a50fff9%3A0xbe3a7f3670c0a45f!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBHaWFvIFRow7RuZyBW4bqtbiBU4bqjaQ!5e0!3m2!1svi!2s!4v1697912019156!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+<section id="form-details">
+    <form>
+        <span>liên hệ với chúng tôi</span>
+        <h2>Chúng tôi rất vui khi được nghe phản hồi từ bạn</h2>
+        
+        <input name="content" placeholder="Phản hồi" cols="30" rows="10"></input>
+        <button asp-controller="Contact" asp-action="SendFeedBack" class="normal">Submit</button>
+    </form>
+
+    <div class="people">
+
+        <div>
+            <img src="~/Image/people/1.png" alt="">
+            <p><span>Nguyễn Tú</span> Student fullstack development <br>Phone: 0986212345 <br> Email: nguyenvantu@gmail.com</p>
+        </div>
+        <div>
+            <img src="~/Image/people/1.png" alt="">
+            <p><span>Ngo Binh</span> Student fullstack development <br>Phone: 0986212345 <br> Email: ngovanbinh@gmail.com</p>
+        </div>
+        <div>
+            <img src="~/Image/people/1.png" alt="">
+            <p><span>Bui Hoang Son</span> Student fullstack development <br>Phone: 0986212345 <br> Email: buihoangson@gmail.com</p>
+        </div>
+        <div>
+            <img src="~/Image/people/1.png" alt="">
+            <p><span>Ca Van Thanh</span> Student fullstack development <br>Phone: 0986212345 <br> Email: cavanthanh@gmail.com</p>
+        </div>
+        <div>
+            <img src="~/Image/people/1.png" alt="">
+            <p><span>Mai Duc Hung</span> Student fullstack development <br>Phone: 0986212345 <br> Email: maiduchung@gmail.com</p>
+        </div>
+    </div>
+</section>
+
+
+
+<hr style="border: 1px solid #000;">
+

@@ -1,0 +1,76 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<BTL_ClothesStore.Models.Product>
+
+@{
+    ViewData["Title"] = "Product by Category";
+    Layout = "~/Views/Shared/ProductLayout.cshtml";
+}
+<section id="product1" class="section-p1">
+
+    @foreach (var item in Model)
+    {
+        <div class="pro">
+
+            <div class="des">
+                <a asp-area="Product" asp-action="ProductDetail" asp-route-id="@item.ProductId">
+                    <img src="~/Image/ProductImage/@item.ProductImage" alt="">
+                    <span>Hãng @ViewBag.Brand.Find(item.BrandId).BrandName</span>
+                    <h5>@item.ProductName</h5>
+                    
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>@item.ProductPrice vnd</h4>
+                </a>
+            </div>
+            <button type="button" class="addtocart" data-id="@item.ProductId"><div class="cart"> <i class="fas fa-shopping-cart" aria-hidden="true"></i></div></button>
+        </div>
+    }
+</section>
+
+<section id="product__pagination">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new{page=page}))
+</section>
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".addtocart").click(function () {
+                $.ajax({
+                    url: "/Cart/AddToCart",
+                    data: {
+                        id: $(this).data("id"),
+                        quantity: 1,
+                        type: "ajax"
+                    },
+                    success: function (data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thêm giỏ hàng thành công',
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                        // console.log(data.soLuong);
+                        // $("#cart_count").html(data.soLuong);
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Thêm giỏ hàng thất bại',
+                            text: 'Vui lòng thử lại',
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
+

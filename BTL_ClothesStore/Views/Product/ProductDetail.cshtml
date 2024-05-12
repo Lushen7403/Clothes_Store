@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/ProductLayout.cshtml";
+}
+
+@model Product
+
+<section id="prodetails" class="section-p1">
+    <div class="single-pro-image">
+        <img src="~/Image/ProductImage/@Model.ProductImage" width="100%" id="MainImg" alt="">
+    </div>
+    <div class="single-pro-details">
+        <h4>@Model.ProductName</h4>
+        <span>Hãng @ViewBag.Brand.Find(Model.BrandId).BrandName</span>
+        <h2>@Model.ProductPrice vnd</h2>
+        <form asp-controller="Cart" asp-route-id="@Model.ProductId" asp-action="AddToCart">
+            <input type="number" value="1" name="quantity">
+            <button class="normal" >Thêm Vào Giỏ Hàng</button>
+        </form>
+        <h4>Chi Tiết Sản Phẩm</h4>
+        <span>@Model.ProductDecript</span>
+    </div>
+</section>
+
+
+
+

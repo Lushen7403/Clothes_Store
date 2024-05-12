@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Account
+@using (Html.BeginForm("Login","Account", FormMethod.Post))
+{
+<div class ="wrapper" >
+<div class="card-container">
+    <div class="container">
+        <div class="log-card">
+            <p class="heading">Đăng Nhập</p>
+            <div class="input-group">
+                <p class="text">Tên đăng nhập</p>
+               @*<input class="input" type="username" placeholder=" ">*@
+                            @Html.TextBoxFor(x=>x.UserAccount,new{@class="input",placeholder=" ",required = "Hãy nhập Tên đăng nhập",autofocus ="autofocus"})
+                <p class="text">Mật khẩu</p>
+                @* <input class="input" type="password" placeholder=" ">*@
+               
+                 @Html.TextBoxFor(x=>x.UserPassword,new{@class="input",type="password" ,placeholder=" ",required = "Hãy nhập mật khẩu",autofocus ="autofocus"})
+            </div>
+            <div class="password-group">
+                <div class="checkbox-group">
+                    <input type="checkbox">
+                    <label class="label">Nhớ mật khẩu</label>
+                </div>
+                <a href="" class="forget-password">Quên mật khẩu</a>
+            </div>
+
+                <button class=" form-submit btn" type="submit" >Đăng nhập</button>
+               
+                <p class="no-account">Bạn chưa có tài khoản ?<a asp-action="Register"> Đăng kí</a>
+        </div>
+    </div>
+</div>
+</div>
+}

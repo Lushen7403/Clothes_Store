@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model BTL_ClothesStore.ModelViews.RegisterViewModel
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <div class="wrapper">
+        <div class="card-container">
+            
+            <div class="container">
+                <div class="log-card">
+                    <p class="heading">Đăng kí tài khoản</p>
+
+                    <div class="input-group">
+                        <p class="text">Tên người dùng</p>
+
+                        @Html.TextBoxFor(temp=>temp.UserAccount, new {@class = "input"})
+                        @Html.ValidationMessageFor(temp => temp.UserAccount)
+                        <p class="text">Tên đăng nhập</p>
+
+                        @Html.TextBoxFor(temp=>temp.UserName, new {@class = "input"})
+                        @Html.ValidationMessageFor(temp => temp.UserName)
+                        <p class="text">Mật khẩu</p>
+
+                        @Html.PasswordFor(temp=>temp.UserPassword, new {@class = "input"})
+                        @Html.ValidationMessageFor(temp => temp.UserPassword)
+                        <p class="text">Nhập lại mật khẩu</p>
+
+                        @Html.PasswordFor(temp=>temp.ConfirmPassword, new {@class = "input"})
+                        @Html.ValidationMessageFor(temp => temp.ConfirmPassword)
+                        <p class="text">Email</p>
+
+                        @Html.TextBoxFor(temp=>temp.UserEmail, new {@class = "input"})
+                        @Html.ValidationMessageFor(temp => temp.UserEmail)
+                        <p class="text">Số điện thoại</p>
+
+                        @Html.TextBoxFor(temp=>temp.UserPhone, new {@class = "input"})
+                        @Html.ValidationMessageFor(temp => temp.UserPhone)
+                        <p class="text">Địa chỉ</p>
+
+                        @Html.TextBoxFor(temp=>temp.UserAddress, new {@class = "input"})
+                        @Html.ValidationMessageFor(temp => temp.UserAddress)
+
+             
+                    </div>
+
+                    <button class="btn btn-success" type="submit">Đăng kí</button>
+                    <p class="no-account">Bạn đã có tài khoản ?<a asp-action="Login">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

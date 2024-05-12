@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" href="~/css/Style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>Shop_quan_ao</title>
+</head>
+<body>
+    <!-- Heading start-->
+    <section id="header">
+        <a href="#"><img src="~/Image/logo/logo.jpg" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                <li><a asp-controller="Product" asp-action="Index">Sản Phẩm</a></li>
+                <li><a asp-controller="Home" asp-action="About">Về Chúng Tôi<i></i></a></li>
+                <li><a asp-controller="Contact" asp-action="Index">Liên hệ</a></li>
+                <li><a asp-controller="Cart" asp-action="Index">Giỏ Hàng</a></li>
+                <li>
+                    <a href="#" id="dropdown-toggle">Tài Khoản</a>
+                    <ul class="dropdown">
+                        <li id="dropdown-child"><a asp-controller="Account" asp-action="Login">Đăng Nhập</a></li>
+                        <li><a asp-controller="Account" asp-action="Register">Đăng Kí</a></li>
+                        <li><a asp-controller="Account" asp-action="Logout">Đăng Xuất</a></li>
+                    </ul>
+                </li>
+                <a href="#" id="close"><i class="fas fa-times"></i></a>
+            </ul>
+            <div id="mobile">
+                <i id="bar" class="fas  fa-outdent"></i>
+            </div>
+        </div>
+    </section>
+    <!-- Heading end-->
+    <div>
+        @RenderBody()
+    </div>
+    <!-- Foooter start-->
+    <hr />
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="~/Image/logo/logo.jpg" alt="">
+            <h4>Liên hệ</h4>
+            <p><strong>Address:</strong> 255 Cầu Giấy,Quận Cầu Giấy,Hà Nội</p>
+            <p><strong>Phone:</strong> 0978347567</p>
+            <p><strong>Hours:</strong> 8:00AM - 22:00PM</p>
+
+            <div class="follow">
+                <h4>Theo dõi trang</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-pinterest"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>Bao Gồm</h4>
+            <a asp-controller="Home" asp-action="About">Về Chúng Tôi </a>
+            <a href="#">Chính sách bảo mật</a>
+            <a href="#">Các Điều Khoản</a>
+            <a asp-controller="Contact" asp-action="Index">Liên Hệ </a>
+        </div>
+        <div class="col">
+            <h4>Tài khoản của tôi</h4>
+            <a asp-controller="Account" asp-action="Login">Đăng Nhập</a>
+            <a asp-controller="Cart" asp-action="Index">Xem Giỏ Hàng</a>
+            <a href="#">Sản Phẩm Yêu Thích</a>
+            <a href="#">Giúp đỡ</a>
+        </div>
+        <div class="col install">
+            <h4>Tải Ứng Dụng</h4>
+            <p>Tải Từ AppStore hoặc GooglePlay</p>
+            <div class="row">
+                <img src="~/Image/ImageFooter/app.jpg" alt="">
+                <img src="~/Image/ImageFooter/play.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© Copyrights 2023 by Cara</p>
+        </div>
+    </footer>
+    <script src="~/js/ProductScript.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @RenderSection("scripts", required:false);
+</body>
+</html>
+

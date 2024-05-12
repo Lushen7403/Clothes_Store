@@ -1,0 +1,69 @@
+﻿@using BTL_ClothesStore.Models
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<FeedBack> 
+
+@{
+    ViewData["Title"] = "PhanHoi";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<h3>Phản Hồi</h3>
+<p>@TempData["Message"]</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tài khoản
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Nội dung phản hồi
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+            string @cls = "table-success";
+        }
+        @foreach (FeedBack item in ViewBag.FeedBackList)
+        {
+            i = i + 1;
+            cls = "table-success";
+            if (i % 2 == 0)
+            {
+                cls = "table-primary";
+            }
+            <tr class="@cls">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account.UserEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account.UserPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FeedBackContent)
+                </td>
+                <td>
+                    <a asp-action="XoaPhanHoi" asp-route-maPhanHoi="@item.FeedBackId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    @Html.PagedListPager(Model, page => Url.Action("PhanHoi", new { page = page }), new
+    X.PagedList.Web.Common.PagedListRenderOptions()
+    {
+
+    LiElementClasses = new List<string> { "page-item" },
+    PageClasses = new List<string> { "page-link" }
+    })

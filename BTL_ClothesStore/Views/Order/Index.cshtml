@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Cart Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model OrderTable
+<section id="page-header" class="about-header">
+    <h2>#Thanh Toán</h2>
+    <p>Thanh toán đơn hàng bạn và lên đồ cháy phố thôi!</p>
+</section>
+
+<section>
+    <div class="container-invoice">
+        <h2>Thanh Toán Thành Công @ViewBag.Total vnd!</h2>
+
+    </div>
+    <div class="invoice">
+        <button><a href="@Url.Action("Index","Product")">Tiếp tục mua hàng</a></button>
+
+    </div>
+</section>
+

@@ -1,0 +1,70 @@
+﻿@using BTL_ClothesStore.Models
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<OrderTable>
+
+@{
+    ViewData["Title"] = "HoaDon";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<h3>Hóa Đơn</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Mã hóa đơn
+            </th>
+            <th>
+                Thời gian
+            </th>
+            <th>
+                Tài khoản
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            int i = 0;
+            string @cls = "table-success";
+        }
+        @foreach (OrderTable item in ViewBag.OrderTable)
+        {
+            i = i + 1;
+            cls = "table-success";
+            if (i % 2 == 0)
+            {
+                cls = "table-primary";
+            }
+            <tr class="@cls">
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderTotal) VND
+                </td>
+                <td>
+                    <a asp-action="ChiTietHoaDon" asp-route-orderID="@item.OrderId">Chi Tiết Hóa Đơn</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager(Model, page => Url.Action("HoaDon", new { page = page }), new
+    X.PagedList.Web.Common.PagedListRenderOptions()
+    {
+
+    LiElementClasses = new List<string> { "page-item" },
+    PageClasses = new List<string> { "page-link" }
+    })
